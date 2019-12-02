@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en"><head>
+
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+				<meta name="keywords" content="Blind signature,Anonymity,Anonymous internet banking,Blinding (cryptography),Cryptography,Digital Signature Algorithm,Digital cash,Digital signature,Dining cryptographers protocol,Electronic money,Public key cryptography">
+		<link rel="shortcut icon" href="http://en.wikipedia.org/favicon.ico">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (English)">
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html"><title>Blind signature - Wikipedia, the free encyclopedia</title>
+		
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/skins-1.5/monobook/main.css?61"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="Blind_signature_files/commonPrint.css">
+		<link rel="stylesheet" type="text/css" media="handheld" href="Blind_signature_files/handheld.css"><!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css?61";</style><![endif]--><!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css?61";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css?61";</style><![endif]--><!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?61";</style><![endif]--><!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?61"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		
+		
+		
+		
+		
+		<script type="text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins-1.5";
+var wgArticlePath = "/wiki/$1";
+var wgScriptPath = "/w";
+var wgServer = "http://en.wikipedia.org";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "Blind_signature";
+var wgTitle = "Blind signature";
+var wgArticleId = "428273";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "112466449";
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="Blind_signature_files/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="Blind_signature_files/index.php"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style><!-- Head Scripts -->
+		
+		<script type="text/javascript" src="Blind_signature_files/ajax.js"></script></head><body class="mediawiki ns-0 ltr page-Blind_signature">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><script type="text/javascript" language="JavaScript">
+<!--
+document.writeln("\x3cdiv style=\"text-align:right; font-size:80%\"\x3eYour \x3cb\x3e\x3ca href=\"http://wikimediafoundation.org/wiki/Fundraising\" class=\"extiw\" title=\"wikimedia:Fundraising\"\x3econtinued donations\x3c/a\x3e\x3c/b\x3e keep Wikipedia running!\x26nbsp;\x26nbsp;\x26nbsp;\x26nbsp;\x3c/div\x3e\n");
+-->
+</script><div style="text-align: right; font-size: 80%;">Your <b><a href="http://wikimediafoundation.org/wiki/Fundraising" class="extiw" title="wikimedia:Fundraising">continued donations</a></b> keep Wikipedia running!&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+</div>		<h1 class="firstHeading">Blind signature</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>In <a href="http://en.wikipedia.org/wiki/Cryptography" title="Cryptography">cryptography</a>, a <b>blind signature</b>, as introduced by David Chaum <sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>, is a form of <a href="http://en.wikipedia.org/wiki/Digital_signature" title="Digital signature">digital signature</a> in which the content of a message is disguised (<a href="http://en.wikipedia.org/wiki/Blinding_%28cryptography%29" title="Blinding (cryptography)">blinded</a>)
+before it is signed. The resulting blind signature can be publicly
+verified against the original, unblinded message in the manner of a
+regular digital signature. Blind signatures are typically employed in
+privacy-related protocols where the signer and message author are
+different parties. Examples include cryptographic election systems and <a href="http://en.wikipedia.org/wiki/Digital_cash" title="Digital cash">digital cash</a> schemes.</p>
+<p>An often-used analogy to the cryptographic blind signature is the
+physical act of enclosing a message in an envelope, which is then
+sealed and signed by a signing agent. Thus, the signer does not view
+the message content, but a third party can later verify the signature
+and know that the signature is valid within the limitations of the
+underlying signature scheme.</p>
+<p>Blind signatures can also be used to provide <i>unlinkability</i>,
+which prevents the signer from linking the blinded message it signs to
+a later un-blinded version that it may be called upon to verify. In
+this case, the signer's response is first "un-blinded" prior to
+verification in such a way that the signature remains valid for the
+un-blinded message. This can be useful in schemes where <a href="http://en.wikipedia.org/wiki/Anonymity" title="Anonymity">anonymity</a> is required.</p>
+<p>Blind signature schemes can be implemented using a number of common <a href="http://en.wikipedia.org/wiki/Public_key_cryptography" title="Public key cryptography">public key</a> signing schemes, for instance <a href="http://en.wikipedia.org/wiki/RSA" title="RSA">RSA</a> and <a href="http://en.wikipedia.org/wiki/Digital_Signature_Algorithm" title="Digital Signature Algorithm">DSA</a>.
+To perform such a signature, the message is first "blinded", typically
+by combining it in some way with a random "blinding factor". The
+blinded message is passed to a signer, who then signs it using a
+standard signing algorithm. The resulting message, along with the
+blinding factor, can be later verified against the signer's public key.
+In some blind signature schemes, such as RSA, it is even possible to
+remove the blinding factor from the signature before it is verified. In
+these schemes, the final output (message/signature) of the blind
+signature scheme is identical to that of the normal signing protocol.</p>
+<table id="toc" class="toc" summary="Contents">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+ <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Uses"><span class="tocnumber">1</span> <span class="toctext">Uses</span></a></li>
+<li class="toclevel-1"><a href="#Blind_Signature_Schemes"><span class="tocnumber">2</span> <span class="toctext">Blind Signature Schemes</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Blind_RSA_Signatures"><span class="tocnumber">2.1</span> <span class="toctext">Blind RSA Signatures</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Weblinks"><span class="tocnumber">4</span> <span class="toctext">Weblinks</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Uses" id="Uses"></a></p>
+<h2><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Blind_signature&amp;action=edit&amp;section=1" title="Edit section: Uses">edit</a>]</span> <span class="mw-headline">Uses</span></h2>
+<p>Blind signature schemes see a great deal of use in applications
+where sender privacy is important. This includes various "digital cash"
+schemes and voting protocols.</p>
+<p>For example, the integrity of some electronic voting system may
+require that each ballot be certified by an election authority before
+it can be accepted for counting; this allows the authority to check the
+credentials of the voter to ensure that they are allowed to vote, and
+that they are not submitting more than one ballot. Simultaneously, it
+is important that this authority not learn the voter's selections. An
+unlinkable blind signature provides this guarantee, as the authority
+will not see the contents of any ballot it signs, and will be unable to
+link the blinded ballots it signs back to the un-blinded ballots it
+receives for counting.</p>
+<p><a name="Blind_Signature_Schemes" id="Blind_Signature_Schemes"></a></p>
+<h2><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Blind_signature&amp;action=edit&amp;section=2" title="Edit section: Blind Signature Schemes">edit</a>]</span> <span class="mw-headline">Blind Signature Schemes</span></h2>
+<p>Blind signature schemes exist for many public key signing protocols.
+Some examples are provided below. In each example, the message to be
+signed is contained in the value <i>m</i>. <i>m</i> is considered to
+be some legitimate input to the signature function.Before explaining
+the blind signature schems, let us try to understand it informally.
+consider the following situation. We have a letter which should be
+signed by a authority(Say A), but we should not reveal the content of
+the letter. What we can do is wrap the letter by a carban sheet and
+send it to A. Now he will sign the letter and he couldn't see the
+message in the letter. Now get back the letter and remove the wrapper.
+You have the letter signed by the authority and he doesn't know
+anything about the letter.</p>
+<p><a name="Blind_RSA_Signatures" id="Blind_RSA_Signatures"></a></p>
+<h3><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Blind_signature&amp;action=edit&amp;section=3" title="Edit section: Blind RSA Signatures">edit</a>]</span> <span class="mw-headline">Blind RSA Signatures</span></h3>
+<p>One of the simplest blind signature schemes is based on RSA signing.
+A traditional RSA signature is computed by exponentiating the message <i>m</i> with the secret exponent <i>d</i>, all mod a public modulus <i>N</i>. The blind version adds a random value <i>r</i>, such that <i>gcd</i>(r, <i>N</i>) = 1. <i>r</i> is exponentiated with the public exponent <i>e</i> (mod <i>N</i>), and the value <span class="texhtml"><i>r</i><sup><i>e</i></sup></span> is used as a blinding factor. The signing authority receives the product of the message and blinding factor <span class="texhtml"><i>m</i>(<i>r</i><sup><i>e</i></sup>)</span> <img class="tex" src="Blind_signature_files/0f909e84d2dd4d1c43106980312a9806.png" alt="\mathrm{mod}\ N">, which obscures the message. The blinded signature <i>s'</i> is then calculated as:</p>
+<dl>
+<dd><img class="tex" src="Blind_signature_files/a5cb63ebba24749547df9980451a4ce6.png" alt="s' \equiv (m(r^e))^d\ (\mathrm{mod}\ N)"></dd>
+</dl>
+<p>The author of the message can then remove the blinding factor to reveal <i>s</i>, the valid RSA signature of <i>m</i>:</p>
+<dl>
+<dd><img class="tex" src="Blind_signature_files/bdc283f26ef7bdc892625a2c58cba837.png" alt="s \equiv s' * r^{-1}\ (\mathrm{mod}\ N)"></dd>
+</dl>
+<p>This works because RSA keys satisfy the equation <img class="tex" src="Blind_signature_files/8b7b90f7464a7a083a825243e682f393.png" alt="r^{ed}\equiv r\pmod{N}"> and thus</p>
+<dl>
+<dd><img class="tex" src="Blind_signature_files/a4c2a177a57e1e66a0b1abf1ad977e87.png" alt="s \equiv s' * r^{-1} \equiv m^d r^{ed} r^{-1} \equiv m^d r r^{-1} \equiv m^d\pmod{N},"></dd>
+</dl>
+<p>hence <i>s</i> is indeed the signature of <i>m</i>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Blind_signature&amp;action=edit&amp;section=4" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Dining_cryptographers_protocol" title="Dining cryptographers protocol">Dining cryptographers protocol</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Anonymous_internet_banking" title="Anonymous internet banking">Anonymous internet banking</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Electronic_money" title="Electronic money">Electronic money</a></li>
+</ul>
+<p><a name="Weblinks" id="Weblinks"></a></p>
+<h2><span class="editsection">[<a href="http://en.wikipedia.org/w/index.php?title=Blind_signature&amp;action=edit&amp;section=5" title="Edit section: Weblinks">edit</a>]</span> <span class="mw-headline">Weblinks</span></h2>
+<ul>
+<li><a href="http://ep.espacenet.com/details/bibliographicData?NR=1721408&amp;CC=EP&amp;KC=A2&amp;DB=ep.espacenet.com&amp;locale=en_EP" class="external text" title="http://ep.espacenet.com/details/bibliographicData?NR=1721408&amp;CC=EP&amp;KC=A2&amp;DB=ep.espacenet.com&amp;locale=en_EP" rel="nofollow">European patent application on "Electronic voting process using fair blind signatures"</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:428273-0!1!0!default!!en!2 and timestamp 20070305172452 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Blind_signature">http://en.wikipedia.org/wiki/Blind_signature</a>"</div>
+			<div id="catlinks"><p class="catlinks"><a href="http://en.wikipedia.org/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Cryptography" title="Category:Cryptography">Cryptography</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Financial_cryptography" title="Category:Financial cryptography">Financial cryptography</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Electronic_voting" title="Category:Electronic voting">Electronic voting</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+					 <li id="ca-nstab-main" class="selected"><a href="http://en.wikipedia.org/wiki/Blind_signature" title="View the content page [alt-c]" accesskey="c">Article</a></li>
+					 <li id="ca-talk"><a href="http://en.wikipedia.org/wiki/Talk:Blind_signature" title="Discussion about the content page [alt-t]" accesskey="t">Discussion</a></li>
+					 <li id="ca-edit"><a href="http://en.wikipedia.org/w/index.php?title=Blind_signature&amp;action=edit" title="You can edit this page. Please use the preview button before saving. [alt-e]" accesskey="e">Edit this page</a></li>
+					 <li id="ca-history"><a href="http://en.wikipedia.org/w/index.php?title=Blind_signature&amp;action=history" title="Past versions of this page. [alt-h]" accesskey="h">History</a></li>
+				</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://en.wikipedia.org/w/index.php?title=Special:Userlogin&amp;returnto=Blind_signature" title="You are encouraged to log in, it is not mandatory however. [alt-o]" accesskey="o">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="http://en.wikipedia.org/wiki/Main_Page" title="Visit the Main Page [alt-z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class="portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Main-page"><a title="Visit the main page [alt-z]" accesskey="z" href="http://en.wikipedia.org/wiki/Main_Page">Main page</a></li>
+				<li id="n-portal"><a href="http://en.wikipedia.org/wiki/Wikipedia:Community_Portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+				<li title="Featured content — the best of Wikipedia" id="n-Featured-content"><a href="http://en.wikipedia.org/wiki/Wikipedia:Featured_content">Featured content</a></li>
+				<li id="n-currentevents"><a href="http://en.wikipedia.org/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="http://en.wikipedia.org/wiki/Special:Recentchanges" title="The list of recent changes in the wiki. [alt-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="http://en.wikipedia.org/wiki/Special:Random" title="Load a random page [alt-x]" accesskey="x">Random article</a></li>
+				<li id="n-About-Wikipedia"><a href="http://en.wikipedia.org/wiki/Wikipedia:About">About Wikipedia</a></li>
+				<li title="How to contact Wikipedia" id="n-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact us</a></li>
+				<li title="Help keep Wikipedia running" id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising" title="Support us">Make a donation</a></li>
+				<li title="The place to find out about Wikipedia" id="n-help"><a href="http://en.wikipedia.org/wiki/Help:Contents" title="The place to find out.">Help</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" title="Search Wikipedia [alt-f]" accesskey="f" value="" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Search" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://en.wikipedia.org/wiki/Special:Whatlinkshere/Blind_signature" title="List of all wiki pages that link here [alt-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://en.wikipedia.org/wiki/Special:Recentchangeslinked/Blind_signature" title="Recent changes in pages linked from this page [alt-k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="http://en.wikipedia.org/wiki/Special:Upload" title="Upload images or media files [alt-u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="http://en.wikipedia.org/wiki/Special:Specialpages" title="List of all special pages [alt-q]" accesskey="q">Special pages</a></li>
+				<li title="Printable version of this page" id="t-print"><a href="http://en.wikipedia.org/w/index.php?title=Blind_signature&amp;printable=yes">Printable version</a></li>				<li title="Permanent link to this version of the page" id="t-permalink"><a href="http://en.wikipedia.org/w/index.php?title=Blind_signature&amp;oldid=112466449">Permanent link</a></li><li title="Cite this Wikipedia article" id="t-cite"><a href="http://en.wikipedia.org/w/index.php?title=Special:Cite&amp;page=Blind_signature&amp;id=112466449">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Signature_aveugle">Français</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="Blind_signature_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="Blind_signature_files/wikimedia-button.png" alt="Wikimedia Foundation" border="0"></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 01:58, 4 March 2007.</li>
+				<li id="copyright">All text is available under the terms of the <a class="internal" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class="internal" href="http://en.wikipedia.org/wiki/Wikipedia:Copyrights" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br> Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc</a>., a US-registered <a class="internal" href="http://en.wikipedia.org/wiki/501%28c%29#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class="internal" href="http://en.wikipedia.org/wiki/Non-profit_organization" title="Non-profit organization">nonprofit</a> <a href="http://en.wikipedia.org/wiki/Charitable_organization" title="Charitable organization">charity</a>.<br></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="http://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+		
+	
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv62 in 0.080 secs. --></body></html>
