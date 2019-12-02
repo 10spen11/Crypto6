@@ -5,9 +5,14 @@
 #define RAND_LIMIT32 0x7FFFFFFF
 using namespace RSAUtil;
 
+BigInt randomBigInt(int maxInt)
+{
+	return BigInt(int(((double)std::rand() / RAND_MAX) * maxInt));
+}
+
 BigInt randomBigInt()
 {
-	return BigInt(int(((double)std::rand() / RAND_MAX) * RAND_LIMIT32));
+	return randomBigInt(RAND_LIMIT32);
 }
 
 void printBigInt(BigInt message)
@@ -17,12 +22,12 @@ void printBigInt(BigInt message)
 
 void sendprint(BigInt t)
 {
-    std::cout<<"\nAlice sends ["<<t.toHexString()<<"] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Bob recieves it\n";
+    std::cout<<"\nAlice sends ["<<t.toHexString()<<"] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Bob recieves it\n";
 }
 
 void sendbackprint(BigInt t)
 {
-    std::cout<<"\nBob sends ["<<t.toHexString()<<"] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Alice recieves it\n";
+    std::cout<<"\nBob sends ["<<t.toHexString()<<"] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Alice recieves it\n";
 }
 
 int main(int argc, char* argv[]) {
@@ -41,14 +46,14 @@ int main(int argc, char* argv[]) {
 	BigInt bobKey = bob.getPublicKey();
 	BigInt bobN = bob.getModulus();
 
-	bobKey.toULong(k, 4);
-	std::cout<<"Alice got Bob's Publickey : "<<*k<<"\n";
+	//bobKey.toULong(k, 4);
+	std::cout<<"Alice got Bob's Publickey : "<<bobKey.toHexString() <<"\n";
     std::cout<<"Alice got Bob's Modulus N : "<<bobN.toHexString()<<"\n";
 
     /*
      * b.      Obtain a random number and its inverse with respect to the Modulus [Not phi] of Bob
      */
-	BigInt randomNumber = randomBigInt();
+	BigInt randomNumber = randomBigInt(0xFFFF); // Ensure that the random number is around 16 bits long for the program to work correctly.
 	BigInt randomNumberInverse = RSAUtil::modInverse(randomNumber, bobN);
     std::cout<<"Random Number w.r.t to modulus is : "<<randomNumber.toHexString()<<"\n";
     std::cout<<"Random Number Inverse w.r.t to modulus is : "<<randomNumberInverse.toHexString()<<"\n";
