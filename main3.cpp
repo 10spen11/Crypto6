@@ -118,13 +118,13 @@ int main(int argc, char* argv[]) {
 	 * j.        Alice then multiplied the received value with the inverse and takes a modulus over N.
 	 */	
 	BigInt signedMessage = (result * randomNumberInverse) % bobN;
-    std::cout<<"Alice multiplies the received value with the inverse and takes a modulo over N : "<<signedMessage.toHexString()<<"\n";
+    std::cout<<"\nAlice multiplies the received value with the inverse and takes a modulo over N : "<<signedMessage.toHexString()<<"\n";
 
     /*
      * k.       The value obtained above is the signed message. To obtain the original message from it, again encrypt it with Bob�s Public Key.
      */
 	BigInt decryptedMessage = bob.encrypt(signedMessage);
-	std::cout<<"The value obtained above is the signed message. To obtain the original message from it, again encrypt it with Bob�s Public Key.\n";
+	std::cout<<"The value obtained above is the signed message. To obtain the original message from it, again encrypt it with Bob's Public Key.\n";
 	std::cout<<"================================================================\n";
 	std::cout << "decrypted message: ";
 	printBigInt(decryptedMessage);
