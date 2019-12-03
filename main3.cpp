@@ -54,8 +54,13 @@ int main(int argc, char* argv[]) {
      * b.      Obtain a random number and its inverse with respect to the Modulus [Not phi] of Bob
      */
 	BigInt randomNumber = randomBigInt(0xFFFF); // Ensure that the random number is around 16 bits long for the program to work correctly.
+
+	while(randomNumber<0x1000){
+	    randomNumber = randomBigInt(0xFFFF);
+	}
+
 	BigInt randomNumberInverse = RSAUtil::modInverse(randomNumber, bobN);
-    std::cout<<"Random Number w.r.t to modulus is : "<<randomNumber.toHexString()<<"\n";
+    std::cout<<"\nRandom Number w.r.t to modulus is : "<<randomNumber.toHexString()<<"\n";
     std::cout<<"Random Number Inverse w.r.t to modulus is : "<<randomNumberInverse.toHexString()<<"\n";
 
 	/*
